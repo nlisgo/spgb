@@ -1,0 +1,59 @@
+name = SPGB
+description = Install with Drupal pre-configured for use.
+version = 7.x-1.x
+core = 7.x
+distribution_name = SPGB
+exclusive = true
+
+; Core modules.
+dependencies[] = block
+dependencies[] = book
+dependencies[] = color
+dependencies[] = comment
+dependencies[] = contextual
+dependencies[] = help
+dependencies[] = image
+dependencies[] = list
+dependencies[] = menu
+dependencies[] = number
+dependencies[] = options
+dependencies[] = path
+dependencies[] = taxonomy
+dependencies[] = dblog
+dependencies[] = search
+dependencies[] = field_ui
+dependencies[] = file
+dependencies[] = rdf
+dependencies[] = update
+dependencies[] = statistics
+
+; Contrib modules.
+dependencies[] = admin_menu
+dependencies[] = advanced_forum
+dependencies[] = php
+dependencies[] = ctools
+dependencies[] = views
+dependencies[] = views_ui
+dependencies[] = webform
+dependencies[] = superfish
+dependencies[] = jquery_update
+dependencies[] = oauth_common
+dependencies[] = twitter
+dependencies[] = quicktabs
+dependencies[] = migrate
+dependencies[] = migrate_ui
+dependencies[] = migrate_d2d
+dependencies[] = strongarm
+dependencies[] = date
+dependencies[] = date_migrate
+dependencies[] = fe_block
+
+; Distribution modules.
+dependencies[] = spgb_blocks
+dependencies[] = spgb_config
+dependencies[] = spgb_content
+dependencies[] = spgb_taxonomy
+dependencies[] = spgb_users
+dependencies[] = spgb_views
+
+files[] = spgb_profile.profile

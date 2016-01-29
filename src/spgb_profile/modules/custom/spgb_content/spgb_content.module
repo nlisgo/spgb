@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SPGB content feature.
+ */
+
+include_once 'spgb_content.features.inc';

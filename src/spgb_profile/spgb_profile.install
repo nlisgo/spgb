@@ -1,0 +1,9 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function spgb_profile_install() {
+  // Remove any status messages that have been set.
+  drupal_get_messages('status', TRUE);
+}

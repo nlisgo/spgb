@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SPGB views feature.
+ */
+
+include_once 'spgb_views.features.inc';

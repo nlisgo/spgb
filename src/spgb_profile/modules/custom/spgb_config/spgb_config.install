@@ -1,0 +1,14 @@
+<?php
+/**
+ * @file
+ * Install and update steps for the SPGB configuration feature.
+ */
+
+/**
+ * Implements hook_install().
+ *
+ * @throws \Exception
+ */
+function spgb_config_install() {
+  theme_enable(['newsplus', 'seven']);
+}

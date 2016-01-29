@@ -1,0 +1,10 @@
+name = SPGB taxonomy
+core = 7.x
+package = SPGB
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = taxonomy
+features[features_api][] = api:2
+features[taxonomy][] = spgb_author_speaker
+features[taxonomy][] = spgb_subject
+project path = profiles/spgb_profile/modules/custom

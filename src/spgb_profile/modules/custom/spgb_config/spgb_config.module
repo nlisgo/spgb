@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the SPGB configuration feature.
+ */
+
+include_once 'spgb_config.features.inc';

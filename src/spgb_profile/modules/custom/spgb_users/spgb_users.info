@@ -1,0 +1,14 @@
+name = SPGB users
+core = 7.x
+package = SPGB
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = node
+dependencies[] = search
+dependencies[] = user
+features[features_api][] = api:2
+features[user_permission][] = access content
+features[user_permission][] = access user profiles
+features[user_permission][] = search content
+features[user_permission][] = use advanced search
+project path = profiles/spgb_profile/modules/custom
