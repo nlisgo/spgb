@@ -43,15 +43,18 @@ dependencies[] = quicktabs
 dependencies[] = migrate
 dependencies[] = migrate_ui
 dependencies[] = migrate_d2d
+dependencies[] = migrate_d2d_ui
 dependencies[] = strongarm
 dependencies[] = date
 dependencies[] = date_migrate
 dependencies[] = fe_block
+dependencies[] = devel
 
 ; Distribution modules.
 dependencies[] = spgb_blocks
 dependencies[] = spgb_config
 dependencies[] = spgb_content
+dependencies[] = spgb_migrate
 dependencies[] = spgb_taxonomy
 dependencies[] = spgb_users
 dependencies[] = spgb_views

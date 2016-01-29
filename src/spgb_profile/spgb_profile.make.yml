@@ -17,6 +17,8 @@ projects:
       - 'https://www.drupal.org/files/issues/ctools-php_7_undefined-2640404-2.patch'
   date:
     version: '2.9'
+  devel:
+    version: '1.5'
   features:
     version: '2.7'
   features_extra:

@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Install steps for the SPGB migrate module.
+ */
+
+/**
+ * Implements hook_enable().
+ */
+function spgb_migrate_enable() {
+  MigrationBase::registerMigration('NodeBookMigration', 'NodeBook', array('group_name' => 'spgb_profile', 'default_uid' => 1));
+}

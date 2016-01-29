@@ -212,13 +212,13 @@ firewall_log_dropped_packets: false
 
 # PHP Configuration. Currently-supported versions: 5.5, 5.6, 7.0.
 php_version: "5.6"
-php_memory_limit: "192M"
+php_memory_limit: "512M"
 php_display_errors: "On"
 php_display_startup_errors: "On"
 php_realpath_cache_size: "1024K"
 php_sendmail_path: "/usr/sbin/ssmtp -t"
 php_opcache_enabled_in_ini: true
-php_opcache_memory_consumption: "192"
+php_opcache_memory_consumption: "512"
 php_opcache_max_accelerated_files: 4096
 php_max_input_vars: "4000"
 

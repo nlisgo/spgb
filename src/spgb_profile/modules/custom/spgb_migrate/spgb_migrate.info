@@ -1,0 +1,7 @@
+name = SPGB migrate
+description = Provides migrate handlers and base migrations.
+package = SPGB
+core = 7.x
+dependencies[] = migrate
+
+files[] = spgb_migrate.migrate.inc
