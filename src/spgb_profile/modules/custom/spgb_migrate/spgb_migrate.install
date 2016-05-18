@@ -9,5 +9,5 @@
  * Implements hook_enable().
  */
 function spgb_migrate_enable() {
-  MigrationBase::registerMigration('NodeBookMigration', 'NodeBook', array('group_name' => 'spgb_profile', 'default_uid' => 1));
+  MigrationBase::registerMigration('NodeBookMigration', 'NodeBookPage', array('group_name' => 'spgb_profile', 'default_uid' => 1));
 }
