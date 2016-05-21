@@ -135,11 +135,7 @@ class NodeBookMigration extends DrupalNode6Migration {
         $db_or->condition($db_and);
       }
       $query->condition($db_or);
-      if ($this->arguments['top'] === 0) {
-        // dpq($query);
-      }
     }
-    // dpm(preg_replace('/(\{|\})/', '', dpq($query, TRUE)));
     return $query;
   }
 
@@ -192,6 +188,27 @@ class NodeBookMigration extends DrupalNode6Migration {
         }
       }
     }
+
+    // Cleanup unresolved stub nodes.
+    // All nodes that are stubs after migration are because of redundant entries
+    // in the menu_links table of the source db.
+    $query = Database::getConnection('default', $this->sourceConnection)
+      ->select('node', 'n')
+      ->condition('title', 'stub');
+    $query->addField('n', 'nid');
+    if ($results = $query->execute()->fetchAllAssoc('nid')) {
+      node_delete_multiple(array_keys($results));
+    }
+
+    /*
+     * Some useful queries.
+     *
+     * SELECT nid FROM spgb.node WHERE title LIKE '%stub%';
+     * SELECT sourceid1 FROM migrate_map_nodebookpage WHERE destid1 IN (SELECT nid FROM spgb.node WHERE title LIKE '%stub%');
+     * SELECT * FROM spgb_d6.node WHERE nid IN (SELECT sourceid1 FROM migrate_map_nodebookpage WHERE destid1 IN (SELECT nid FROM spgb.node WHERE title LIKE '%stub%'));
+     * SELECT mlk_c.menu_name, mlk_c.mlid, mlk_c.plid, mlk_c.link_title, mlk_c.module, mlk_c.depth, node_s.nid, node_s.title, node_s.status, mlk_p.link_path AS plid_link_path, mlk_p.link_title AS plid_link_title FROM spgb_d6.menu_links mlk_c, spgb_d6.menu_links mlk_p, (SELECT sourceid1 FROM migrate_map_nodebookpage WHERE destid1 IN (SELECT nid FROM spgb.node WHERE title LIKE '%stub%')) AS map LEFT JOIN spgb_d6.node node_s ON node_s.nid = map.sourceid1 WHERE CONCAT('node/', map.sourceid1) = mlk_c.link_path AND mlk_p.mlid = mlk_c.plid;
+     * SELECT stub.*, CONCAT(SUBSTRING_INDEX(stub.link_path, '/', -1), ',', GROUP_CONCAT(dupl_node.nid)) FROM (SELECT mlk_c.mlid, mlk_c.link_title, mlk_c.link_path FROM spgb_d6.menu_links mlk_c, spgb_d6.menu_links mlk_p, (SELECT sourceid1 FROM migrate_map_nodebookpage WHERE destid1 IN (SELECT nid FROM spgb.node WHERE title LIKE '%stub%')) AS map LEFT JOIN spgb_d6.node node_s ON node_s.nid = map.sourceid1 WHERE CONCAT('node/', map.sourceid1) = mlk_c.link_path AND mlk_p.mlid = mlk_c.plid) AS stub LEFT JOIN spgb_d6.node dupl_node ON dupl_node.title = stub.link_title AND CONCAT('node/', dupl_node.nid) != stub.link_path GROUP BY dupl_node.title ORDER BY dupl_node.title;
+     */
   }
 
   /**
