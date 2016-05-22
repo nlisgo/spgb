@@ -176,6 +176,8 @@ class NodeBookMigration extends DrupalNode6Migration {
           if (!empty($parent->book)) {
             $node->book['plid'] = $parent->book['mlid'];
             node_save($node);
+            $parent->book['has_children'] = 1;
+            node_save($parent);
           }
         }
         $i++;
@@ -188,16 +190,21 @@ class NodeBookMigration extends DrupalNode6Migration {
         }
       }
     }
+  }
 
-    // Cleanup unresolved stub nodes.
+  public function postImport() {
+    // Unpublish unresolved stub nodes.
     // All nodes that are stubs after migration are because of redundant entries
     // in the menu_links table of the source db.
-    $query = Database::getConnection('default', $this->sourceConnection)
-      ->select('node', 'n')
-      ->condition('title', 'stub');
+    $query = db_select('node', 'n')
+      ->condition('title', 'Stub');
     $query->addField('n', 'nid');
     if ($results = $query->execute()->fetchAllAssoc('nid')) {
-      node_delete_multiple(array_keys($results));
+      foreach (array_keys($results) as $nid) {
+        $node = node_load($nid);
+        $node->status = 0;
+        node_save($node);
+      }
     }
 
     /*
