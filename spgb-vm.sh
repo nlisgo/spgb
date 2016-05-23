@@ -16,7 +16,7 @@ fi
 cd "$SCRIPTPATH"
 if [ ! -d ../spgb-drupal-vm ]; then
   echo "Cloning git@github.com:geerlingguy/drupal-vm.git to ../spgb-drupal-vm"
-  git clone git@github.com:geerlingguy/drupal-vm.git ../spgb-drupal-vm
+  git clone https://github.com/geerlingguy/drupal-vm.git ../spgb-drupal-vm
   cd ../spgb-drupal-vm
   git checkout tags/2.2.1
 fi
