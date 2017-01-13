@@ -34,6 +34,22 @@ function spgb_content_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'book' => array(
+      'name' => t('Book page'),
+      'base' => 'node_content',
+      'description' => t('<em>Books</em> have a built-in hierarchical navigation. Use for handbooks or tutorials.'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
+    'event' => array(
+      'name' => t('Event'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'mt_post' => array(
       'name' => t('Post'),
       'base' => 'node_content',
