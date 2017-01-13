@@ -1185,7 +1185,7 @@ function spgb_views_views_default_views() {
       'separator' => '',
     ),
   );
-  /* Field: Twitter: Profile image */
+  /* Field: Twitter Account: Profile image */
   $handler->display->display_options['fields']['profile_image_url']['id'] = 'profile_image_url';
   $handler->display->display_options['fields']['profile_image_url']['table'] = 'twitter_account';
   $handler->display->display_options['fields']['profile_image_url']['field'] = 'profile_image_url';
@@ -1210,7 +1210,7 @@ function spgb_views_views_default_views() {
   $handler->display->display_options['sorts']['created_time']['table'] = 'twitter';
   $handler->display->display_options['sorts']['created_time']['field'] = 'created_time';
   $handler->display->display_options['sorts']['created_time']['order'] = 'DESC';
-  /* Filter criterion: Twitter: Protected status */
+  /* Filter criterion: Twitter Account: Protected status */
   $handler->display->display_options['filters']['protected']['id'] = 'protected';
   $handler->display->display_options['filters']['protected']['table'] = 'twitter_account';
   $handler->display->display_options['filters']['protected']['field'] = 'protected';
@@ -1247,7 +1247,6 @@ function spgb_views_views_default_views() {
   $handler->display->display_options['fields']['text']['link_urls'] = 1;
   $handler->display->display_options['fields']['text']['link_usernames'] = 1;
   $handler->display->display_options['fields']['text']['link_hashtags'] = 1;
-  $handler->display->display_options['fields']['text']['hashtags_url'] = 'https://twitter.com/search?q=%23';
   $handler->display->display_options['fields']['text']['link_attributes'] = 1;
   /* Field: Twitter: Created time */
   $handler->display->display_options['fields']['created_time']['id'] = 'created_time';
@@ -1286,7 +1285,6 @@ function spgb_views_views_default_views() {
   $handler->display->display_options['fields']['text']['link_urls'] = 1;
   $handler->display->display_options['fields']['text']['link_usernames'] = 1;
   $handler->display->display_options['fields']['text']['link_hashtags'] = 1;
-  $handler->display->display_options['fields']['text']['hashtags_url'] = 'https://twitter.com/search?q=%23';
   $handler->display->display_options['fields']['text']['link_attributes'] = 1;
   /* Field: Twitter: Created time */
   $handler->display->display_options['fields']['created_time']['id'] = 'created_time';

@@ -26,6 +26,14 @@ function spgb_content_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'audio' => array(
+      'name' => t('Audio'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'mt_post' => array(
       'name' => t('Post'),
       'base' => 'node_content',
