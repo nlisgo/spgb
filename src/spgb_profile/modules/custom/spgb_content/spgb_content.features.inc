@@ -74,6 +74,14 @@ function spgb_content_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'pamphlet' => array(
+      'name' => t('Pamphlet'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'video' => array(
       'name' => t('Video'),
       'base' => 'node_content',
