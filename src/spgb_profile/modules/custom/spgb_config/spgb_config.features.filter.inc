@@ -29,7 +29,7 @@ function spgb_config_filter_default_formats() {
         'weight' => 1,
         'status' => 1,
         'settings' => array(
-          'allowed_html' => '<a> <em> <strong> <cite> <blockquote> <code> <ul> <ol> <li> <dl> <dt> <dd>',
+          'allowed_html' => '<a> <em> <strong> <cite> <code> <ul> <ol> <li> <dl> <dt> <p> <b> <i> <img> <span>',
           'filter_html_help' => 1,
           'filter_html_nofollow' => 0,
         ),
@@ -38,6 +38,38 @@ function spgb_config_filter_default_formats() {
         'weight' => 2,
         'status' => 1,
         'settings' => array(),
+      ),
+      'filter_htmlcorrector' => array(
+        'weight' => 10,
+        'status' => 1,
+        'settings' => array(),
+      ),
+    ),
+  );
+
+  // Exported format: Filtered HTML - no automatic line breaks.
+  $formats['filtered_html_no_automatic_line_breaks'] = array(
+    'format' => 'filtered_html_no_automatic_line_breaks',
+    'name' => 'Filtered HTML - no automatic line breaks',
+    'cache' => 1,
+    'status' => 1,
+    'weight' => 0,
+    'filters' => array(
+      'filter_html' => array(
+        'weight' => -10,
+        'status' => 1,
+        'settings' => array(
+          'allowed_html' => '<a> <em> <strong> <cite> <code> <ul> <ol> <li> <dl> <dt> <p> <b> <i> <img> <span> <br>',
+          'filter_html_help' => 1,
+          'filter_html_nofollow' => 0,
+        ),
+      ),
+      'filter_url' => array(
+        'weight' => 0,
+        'status' => 1,
+        'settings' => array(
+          'filter_url_length' => 72,
+        ),
       ),
       'filter_htmlcorrector' => array(
         'weight' => 10,
