@@ -19,11 +19,11 @@ function spgb_migrate_migrate_api() {
     ),
     'migrations' => array(
       'NodeBookPage' => array(
-        'class_name' => 'NodeBookMigration',
+        'class_name' => 'NodeBookPageMigration',
         'group_name' => 'spgb_custom',
         'description' => t('Migration of D6 Book nodes'),
         'source_connection' => 'd6',
-        'destination_type' => 'mt_post',
+        'destination_type' => 'book',
         'source_type' => 'book',
         'source_version' => 6,
         'top' => 0,
@@ -38,7 +38,7 @@ function spgb_migrate_migrate_api() {
         'group_name' => 'spgb_custom',
         'description' => t('Migration of D6 Book Group nodes'),
         'source_connection' => 'd6',
-        'destination_type' => 'mt_post',
+        'destination_type' => 'book',
         'source_type' => 'group',
         'source_version' => 6,
         'top' => TRUE,
@@ -51,7 +51,7 @@ function spgb_migrate_migrate_api() {
         'group_name' => 'spgb_custom',
         'description' => t('Migration of D6 Book nodes'),
         'source_connection' => 'd6',
-        'destination_type' => 'mt_post',
+        'destination_type' => 'book',
         'source_type' => 'book',
         'source_version' => 6,
         'top' => FALSE,
@@ -69,7 +69,7 @@ function spgb_migrate_migrate_api() {
         'group_name' => 'spgb_custom',
         'description' => t('Migration of D6 Book Pamphlet nodes'),
         'source_connection' => 'd6',
-        'destination_type' => 'mt_post',
+        'destination_type' => 'pamphlet',
         'source_type' => 'pamphlet',
         'source_version' => 6,
         'top' => TRUE,
@@ -82,7 +82,7 @@ function spgb_migrate_migrate_api() {
         'group_name' => 'spgb_custom',
         'description' => t('Migration of D6 Book nodes'),
         'source_connection' => 'd6',
-        'destination_type' => 'mt_post',
+        'destination_type' => 'book',
         'source_type' => 'book',
         'source_version' => 6,
         'top' => FALSE,
@@ -102,6 +102,15 @@ function spgb_migrate_migrate_api() {
 
 class NodeBookMigration extends DrupalNode6Migration {
   public function __construct(array $arguments) {
+    // @todo - spgb - nlisgo - consider adding more d6 filter formats.
+    $arguments['format_mappings'] = array(
+      1 => 'filtered_html',
+      2 => 'full_html',
+      3 => 'filtered_html_no_automatic_line_breaks',
+      // mapping unfiltered html to full_html for now.
+      4 => 'full_html',
+      5 => 'plain_text',
+    );
     parent::__construct($arguments);
   }
 
@@ -136,6 +145,7 @@ class NodeBookMigration extends DrupalNode6Migration {
       }
       $query->condition($db_or);
     }
+
     return $query;
   }
 
@@ -227,5 +237,45 @@ class NodeBookMigration extends DrupalNode6Migration {
   protected function lookupMigratedBook($source_book_nid) {
     $dest_book_nid = parent::handleSourceMigration($this->arguments['source_migrations'], $source_book_nid);
     return $dest_book_nid;
+  }
+}
+
+class NodeBookPageMigration extends NodeBookMigration {
+  public function __construct(array $arguments) {
+    parent::__construct($arguments);
+    $this->addFieldMapping('field_date', 'field_pubdate');
+    $this->addFieldMapping('field_tr_author_speaker', '3')->sourceMigration('8f5399331Term3');
+    $this->addFieldMapping('field_tr_author_speaker:source_type')
+      ->defaultValue('tid');
+    $this->addFieldMapping('field_tr_subject', '2')->sourceMigration('8f5399331Term2');
+    $this->addFieldMapping('field_tr_subject:source_type')
+      ->defaultValue('tid');
+    $this->addFieldMapping('field_lead_image', 'field_image')->sourceMigration('8f5399331File');
+    $this->addFieldMapping('field_lead_image:file_class')
+      ->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_lead_image:preserve_files')
+      ->defaultValue(TRUE);
+    $this->addFieldMapping('field_full_page_image', 'field_fullpageimage')->sourceMigration('8f5399331File');
+    $this->addFieldMapping('field_full_page_image:file_class')
+      ->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_full_page_image:preserve_files')
+      ->defaultValue(TRUE);
+    $this->addFieldMapping('field_inline_image', 'field_imageinline')->sourceMigration('8f5399331File');
+    $this->addFieldMapping('field_inline_image:file_class')
+      ->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_inline_image:preserve_files')
+      ->defaultValue(TRUE);
+    $this->addFieldMapping('field_pdf', 'field_pdf')->sourceMigration('8f5399331File');
+    $this->addFieldMapping('field_pdf:file_class')
+      ->defaultValue('MigrateFileFid');
+    $this->addFieldMapping('field_pdf:preserve_files')
+      ->defaultValue(TRUE);
+  }
+
+  public function prepareRow($row) {
+    if (!empty($row->body)) {
+      $row->body = preg_replace('~(src=\")http://www.worldsocialism.org/spgb~', '$1', $row->body);
+    }
+    parent::prepareRow($row);
   }
 }
