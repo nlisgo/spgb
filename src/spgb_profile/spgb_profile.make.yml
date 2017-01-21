@@ -11,16 +11,13 @@ projects:
   advanced_forum:
     version: '2.6'
   ctools:
-    version: '1.9'
-    patch:
-      - 'http://cgit.drupalcode.org/ctools/patch/?id=96e56f523ce3d9609e677fcc6263cfc3e798b0ab'
-      - 'https://www.drupal.org/files/issues/ctools-php_7_undefined-2640404-2.patch'
+    version: '1.12'
   date:
     version: '2.9'
   devel:
     version: '1.5'
   features:
-    version: '2.7'
+    version: '2.10'
   features_extra:
     version: '1.0'
   jquery_update:
@@ -44,11 +41,11 @@ projects:
   twitter:
     version: '5.11'
   views:
-    version: '3.13'
+    version: '3.14'
     patch:
-      - 'https://www.drupal.org/files/issues/views-row-class-underscores-1371118-16.patch'
+      - 'https://www.drupal.org/files/issues/views-row-class-underscores-1371118-33.patch'
   webform:
-    version: '3.24'
+    version: '3.26'
 
 libraries:
   superfish:
