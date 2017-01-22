@@ -8,8 +8,8 @@ if [ -d ./web/ ]; then
   chmod -R 777 ./web/
   rm -rf ./web
 fi
-drush make ./src/drupal.make.yml ./web
-ln -s "../../src/spgb_profile" "$SCRIPTPATH/web/profiles/"
-ln -s "../../../src/settings.php" "$SCRIPTPATH/web/sites/default/"
-chmod 755 ./web/sites/default/settings.php
+drush make ./src/drupal.make.yml ./web/spgb
+ln -s "../../../src/spgb_profile" "$SCRIPTPATH/web/spgb/profiles/"
+ln -s "../../../../src/settings.php" "$SCRIPTPATH/web/spgb/sites/default/"
+chmod 755 ./web/spgb/sites/default/settings.php
 ./remake.sh

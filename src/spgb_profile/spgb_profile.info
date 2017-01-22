@@ -50,6 +50,7 @@ dependencies[] = date_migrate
 dependencies[] = fe_block
 dependencies[] = devel
 dependencies[] = simple_gmap
+dependencies[] = insert
 
 ; Distribution modules.
 dependencies[] = spgb_blocks

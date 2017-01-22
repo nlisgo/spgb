@@ -274,7 +274,7 @@ class NodeBookPageMigration extends NodeBookMigration {
 
   public function prepareRow($row) {
     if (!empty($row->body)) {
-      $row->body = preg_replace('~(src=\")http://www.worldsocialism.org/spgb~', '$1', $row->body);
+      $row->body = preg_replace('~(src=\")http://www.worldsocialism.org~', '$1', $row->body);
     }
     parent::prepareRow($row);
   }

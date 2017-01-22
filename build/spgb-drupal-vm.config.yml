@@ -46,7 +46,7 @@ install_site: true
 # Settings for building a Drupal site from a makefile (if 'build_makefile:'
 # is 'true').
 drupal_major_version: 7
-drupal_core_path: "/var/www/spgb/web"
+drupal_core_path: "/var/www/spgb/web/spgb"
 drupal_domain: "spgb.dev"
 drupal_site_name: "SPGB"
 drupal_install_profile: spgb_profile
@@ -78,26 +78,26 @@ configure_local_drush_aliases: true
 # View the geerlingguy.apache Ansible Role README for more options.
 apache_vhosts:
   - servername: "{{ drupal_domain }}"
-    documentroot: "{{ drupal_core_path }}"
+    documentroot: "/var/www/spgb/web"
     extra_parameters: |
-          ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000{{ drupal_core_path }}"
+          ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/spgb/web"
 
   - servername: "spgb-test.dev"
-    documentroot: "{{ drupal_core_path }}"
+    documentroot: "/var/www/spgb/web"
     extra_parameters: |
-          ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000{{ drupal_core_path }}"
+          ProxyPassMatch ^/(.*\.php(/.*)?)$ "fcgi://127.0.0.1:9000/var/www/spgb/web"
 
-  - servername: "adminer.drupalvm.dev"
+  - servername: "adminer.spgb.dev"
     documentroot: "/opt/adminer"
     extra_parameters: |
           ProxyPassMatch ^/(.*\.php(/.*)?)$ "unix:/var/run/php5-fpm.sock|fcgi://127.0.0.1:9000/opt/adminer"
 
-  - servername: "xhprof.drupalvm.dev"
+  - servername: "xhprof.spgb.dev"
     documentroot: "/usr/share/php/xhprof_html"
     extra_parameters: |
           ProxyPassMatch ^/(.*\.php(/.*)?)$ "unix:/var/run/php5-fpm.sock|fcgi://127.0.0.1:9000/usr/share/php/xhprof_html"
 
-  - servername: "pimpmylog.drupalvm.dev"
+  - servername: "pimpmylog.spgb.dev"
     documentroot: "/usr/share/php/pimpmylog"
     extra_parameters: |
           ProxyPassMatch ^/(.*\.php(/.*)?)$ "unix:/var/run/php5-fpm.sock|fcgi://127.0.0.1:9000/usr/share/php/pimpmylog"
@@ -113,22 +113,22 @@ apache_mods_enabled:
 # Drupal.
 nginx_hosts:
   - server_name: "{{ drupal_domain }}"
-    root: "{{ drupal_core_path }}"
+    root: "/var/www/spgb/web"
     is_php: true
 
   - server_name: "spgb-test.dev"
-    root: "{{ drupal_core_path }}"
+    root: "/var/www/spgb/web"
     is_php: true
 
-  - server_name: "adminer.drupalvm.dev"
+  - server_name: "adminer.spgb.dev"
     root: "/opt/adminer"
     is_php: true
 
-  - server_name: "xhprof.drupalvm.dev"
+  - server_name: "xhprof.spgb.dev"
     root: "/usr/share/php/xhprof_html"
     is_php: true
 
-  - server_name: "pimpmylog.drupalvm.dev"
+  - server_name: "pimpmylog.spgb.dev"
     root: "/usr/share/php/pimpmylog"
     is_php: true
 
