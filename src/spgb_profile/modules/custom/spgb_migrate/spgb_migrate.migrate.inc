@@ -112,6 +112,7 @@ class NodeBookMigration extends DrupalNode6Migration {
       5 => 'plain_text',
     );
     parent::__construct($arguments);
+    $this->addFieldMapping('uid', 'uid', FALSE)->sourceMigration('8f5399331User');
   }
 
   /**
