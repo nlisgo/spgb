@@ -107,8 +107,7 @@ class NodeBookMigration extends DrupalNode6Migration {
       1 => 'filtered_html',
       2 => 'full_html',
       3 => 'filtered_html_no_automatic_line_breaks',
-      // mapping unfiltered html to full_html for now.
-      4 => 'full_html',
+      4 => 'unfiltered_html',
       5 => 'plain_text',
     );
     parent::__construct($arguments);
