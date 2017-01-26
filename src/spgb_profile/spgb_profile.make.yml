@@ -31,7 +31,7 @@ projects:
   migrate_d2d:
     version: '2.1'
   oauth:
-    version: '3.2'
+    version: '3.3'
   quicktabs:
     version: '3.6'
   simple_gmap:
