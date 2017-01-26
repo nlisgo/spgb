@@ -107,5 +107,15 @@ function spgb_config_filter_default_formats() {
     ),
   );
 
+  // Exported format: Unfiltered HTML.
+  $formats['unfiltered_html'] = array(
+    'format' => 'unfiltered_html',
+    'name' => 'Unfiltered HTML',
+    'cache' => 1,
+    'status' => 1,
+    'weight' => 0,
+    'filters' => array(),
+  );
+
   return $formats;
 }

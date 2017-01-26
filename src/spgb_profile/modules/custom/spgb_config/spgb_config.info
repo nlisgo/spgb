@@ -11,6 +11,7 @@ features[features_api][] = api:2
 features[filter][] = filtered_html
 features[filter][] = filtered_html_no_automatic_line_breaks
 features[filter][] = full_html
+features[filter][] = unfiltered_html
 features[variable][] = admin_theme
 features[variable][] = node_admin_theme
 features[variable][] = theme_default
