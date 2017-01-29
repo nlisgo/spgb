@@ -52,6 +52,6 @@ projects:
 libraries:
   superfish:
     download:
-      type: 'file'
-      url: 'https://github.com/mehrpadin/Superfish-for-Drupal/archive/1.x.zip'
-      md5: '862f602c8a855165c13f82cc199dcc87'
+      type: 'git'
+      url: 'git@github.com:mehrpadin/Superfish-for-Drupal.git'
+      revision: '081b415aff3bc5044d743143c0b78022d41b0fbd'
