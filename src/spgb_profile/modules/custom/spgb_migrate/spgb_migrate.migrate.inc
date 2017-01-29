@@ -27,7 +27,12 @@ function spgb_migrate_migrate_api() {
         'source_type' => 'book',
         'source_version' => 6,
         'top' => 0,
-        'dependencies' => array(),
+        'dependencies' => array(
+          '8f5399331User',
+          '8f5399331Term3',
+          '8f5399331Term2',
+          '8f5399331File',
+        ),
         'parent_source_type' => 'book',
         'source_migrations' => array(
           'NodeBookPage',
@@ -42,6 +47,9 @@ function spgb_migrate_migrate_api() {
         'source_type' => 'group',
         'source_version' => 6,
         'top' => TRUE,
+        'dependencies' => array(
+          '8f5399331User',
+        ),
         'source_migrations' => array(
           'NodeBookPageGroup',
         ),
@@ -56,6 +64,7 @@ function spgb_migrate_migrate_api() {
         'source_version' => 6,
         'top' => FALSE,
         'dependencies' => array(
+          '8f5399331User',
           'NodeBookGroup',
         ),
         'parent_source_type' => 'group',
@@ -73,6 +82,9 @@ function spgb_migrate_migrate_api() {
         'source_type' => 'pamphlet',
         'source_version' => 6,
         'top' => TRUE,
+        'dependencies' => array(
+          '8f5399331User',
+        ),
         'source_migrations' => array(
           'NodeBookPagePamphlet',
         ),
@@ -87,6 +99,7 @@ function spgb_migrate_migrate_api() {
         'source_version' => 6,
         'top' => FALSE,
         'dependencies' => array(
+          '8f5399331User',
           'NodeBookPamphlet',
         ),
         'parent_source_type' => 'pamphlet',
