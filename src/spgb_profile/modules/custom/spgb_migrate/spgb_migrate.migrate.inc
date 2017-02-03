@@ -31,6 +31,7 @@ function spgb_migrate_migrate_api() {
           '8f5399331User',
           '8f5399331Term3',
           '8f5399331Term2',
+          '8f5399331Term7',
           '8f5399331File',
         ),
         'parent_source_type' => 'book',
@@ -262,6 +263,9 @@ class NodeBookPageMigration extends NodeBookMigration {
       ->defaultValue('tid');
     $this->addFieldMapping('field_tr_subject', '2')->sourceMigration('8f5399331Term2');
     $this->addFieldMapping('field_tr_subject:source_type')
+      ->defaultValue('tid');
+    $this->addFieldMapping('field_regulars', '7')->sourceMigration('8f5399331Term7');
+    $this->addFieldMapping('field_regulars:source_type')
       ->defaultValue('tid');
     $this->addFieldMapping('field_lead_image', 'field_image')->sourceMigration('8f5399331File');
     $this->addFieldMapping('field_lead_image:file_class')
