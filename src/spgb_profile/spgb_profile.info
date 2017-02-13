@@ -52,6 +52,7 @@ dependencies[] = devel
 dependencies[] = simple_gmap
 dependencies[] = insert
 dependencies[] = audiofield
+dependencies[] = quote
 
 ; Distribution modules.
 dependencies[] = spgb_blocks
