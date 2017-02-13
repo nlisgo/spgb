@@ -10,6 +10,8 @@ projects:
     version: '3.0-rc5'
   advanced_forum:
     version: '2.6'
+  audiofield:
+    version: '1.2'
   ctools:
     version: '1.12'
   date:
