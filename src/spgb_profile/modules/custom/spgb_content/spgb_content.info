@@ -9,6 +9,7 @@ dependencies[] = file
 dependencies[] = image
 dependencies[] = list
 dependencies[] = options
+dependencies[] = simple_gmap
 dependencies[] = spgb_taxonomy
 dependencies[] = strongarm
 dependencies[] = taxonomy
