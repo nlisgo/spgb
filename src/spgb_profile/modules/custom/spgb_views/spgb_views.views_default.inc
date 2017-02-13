@@ -519,9 +519,9 @@ function spgb_views_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'article' => 'article',
-    'blog' => 'blog',
-    'mt_post' => 'mt_post',
+    'audio' => 'audio',
+    'book' => 'book',
+    'video' => 'video',
   );
 
   /* Display: Block */
@@ -905,9 +905,12 @@ function spgb_views_views_default_views() {
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
-    'article' => 'article',
-    'blog' => 'blog',
-    'mt_post' => 'mt_post',
+    'audio' => 'audio',
+    'page' => 'page',
+    'book' => 'book',
+    'forum' => 'forum',
+    'pamphlet' => 'pamphlet',
+    'video' => 'video',
   );
 
   /* Display: Block */
