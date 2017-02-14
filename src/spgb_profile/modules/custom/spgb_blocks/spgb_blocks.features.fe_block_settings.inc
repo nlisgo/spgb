@@ -320,7 +320,7 @@ function spgb_blocks_default_fe_block_settings() {
         'region' => 'navigation',
         'status' => 1,
         'theme' => 'newsplus',
-        'weight' => -21,
+        'weight' => -20,
       ),
       'seven' => array(
         'region' => '',
