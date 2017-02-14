@@ -34,6 +34,8 @@ projects:
     version: '2.1'
   oauth:
     version: '3.3'
+  pathauto:
+    version: '1.3'
   quicktabs:
     version: '3.6'
   quote:
@@ -44,6 +46,8 @@ projects:
     version: '2.0'
   superfish:
     version: '1.9'
+  token:
+    version: '1.7'
   twitter:
     version: '5.11'
   views:
