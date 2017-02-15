@@ -26,6 +26,7 @@ features[variable][] = pathauto_node_video_pattern
 features[variable][] = site_name
 features[variable][] = site_slogan
 features[variable][] = theme_default
+features[variable][] = theme_newsplus_settings
 features[variable][] = user_picture_default
 features[variable][] = user_picture_dimensions
 features[variable][] = user_picture_file_size
