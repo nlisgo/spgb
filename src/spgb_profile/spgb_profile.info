@@ -60,7 +60,6 @@ dependencies[] = logintoboggan
 dependencies[] = views_responsive_grid
 dependencies[] = date_views
 dependencies[] = calendar
-dependencies[] = ubercart
 dependencies[] = scheduler
 
 ; Distribution modules.
