@@ -61,6 +61,13 @@ dependencies[] = views_responsive_grid
 dependencies[] = date_views
 dependencies[] = calendar
 dependencies[] = scheduler
+dependencies[] = riddler
+dependencies[] = webform_reply_to
+dependencies[] = webform_validation
+dependencies[] = discussthis
+dependencies[] = captcha
+dependencies[] = recaptcha
+
 
 ; Distribution modules.
 dependencies[] = spgb_blocks
