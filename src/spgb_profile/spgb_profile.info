@@ -67,6 +67,7 @@ dependencies[] = webform_validation
 dependencies[] = discussthis
 dependencies[] = captcha
 dependencies[] = recaptcha
+dependencies[] = similarterms
 
 
 ; Distribution modules.
