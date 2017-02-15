@@ -55,6 +55,10 @@ dependencies[] = audiofield
 dependencies[] = quote
 dependencies[] = pathauto
 dependencies[] = token
+dependencies[] = ckeditor
+dependencies[] = logintoboggan
+dependencies[] = views_responsive_grid
+dependencies[] = date_views
 
 ; Distribution modules.
 dependencies[] = spgb_blocks
