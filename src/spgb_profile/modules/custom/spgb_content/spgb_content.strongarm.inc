@@ -440,6 +440,9 @@ function spgb_content_strongarm() {
       'print' => array(
         'custom_settings' => FALSE,
       ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(

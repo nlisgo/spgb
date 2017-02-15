@@ -495,7 +495,7 @@ function spgb_content_field_default_field_instances() {
           'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
-        'weight' => 3,
+        'weight' => 2,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -540,10 +540,10 @@ function spgb_content_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'file',
+        'module' => 'audiofield',
         'settings' => array(),
-        'type' => 'file_default',
-        'weight' => 4,
+        'type' => 'audiofield_embedded',
+        'weight' => 3,
       ),
       'teaser' => array(
         'label' => 'above',
@@ -636,7 +636,7 @@ function spgb_content_field_default_field_instances() {
         'module' => 'taxonomy',
         'settings' => array(),
         'type' => 'taxonomy_term_reference_link',
-        'weight' => 2,
+        'weight' => 4,
       ),
       'teaser' => array(
         'label' => 'above',
