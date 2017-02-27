@@ -44,6 +44,38 @@ function spgb_blocks_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['block-search_social'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'machine_name' => 'search_social',
+    'module' => 'block',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'bartik' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bartik',
+        'weight' => 0,
+      ),
+      'newsplus' => array(
+        'region' => 'navigation',
+        'status' => 1,
+        'theme' => 'newsplus',
+        'weight' => 0,
+      ),
+      'seven' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'seven',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['book-navigation'] = array(
     'cache' => 5,
     'custom' => 0,
@@ -285,8 +317,8 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
       'newsplus' => array(
-        'region' => 'sidebar_second',
-        'status' => 1,
+        'region' => '',
+        'status' => 0,
         'theme' => 'newsplus',
         'weight' => -17,
       ),
@@ -431,7 +463,6 @@ function spgb_blocks_default_fe_block_settings() {
 
   $export['views-mt_breaking-block'] = array(
     'cache' => -1,
-    'custom' => 0,
     'delta' => 'mt_breaking-block',
     'module' => 'views',
     'node_types' => array(),
@@ -457,13 +488,10 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
   );
 
   $export['views-mt_hot_posts-block'] = array(
     'cache' => -1,
-    'custom' => 0,
     'delta' => 'mt_hot_posts-block',
     'module' => 'views',
     'node_types' => array(),
@@ -489,13 +517,10 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
   );
 
   $export['views-mt_internal_banner-block'] = array(
     'cache' => -1,
-    'custom' => 0,
     'delta' => 'mt_internal_banner-block',
     'module' => 'views',
     'node_types' => array(),
@@ -521,13 +546,10 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
   );
 
   $export['views-mt_latest-block'] = array(
     'cache' => -1,
-    'custom' => 0,
     'delta' => 'mt_latest-block',
     'module' => 'views',
     'node_types' => array(),
@@ -553,13 +575,10 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
   );
 
   $export['views-mt_latest-block_1'] = array(
     'cache' => -1,
-    'custom' => 0,
     'delta' => 'mt_latest-block_1',
     'module' => 'views',
     'node_types' => array(),
@@ -585,13 +604,10 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
   );
 
   $export['views-mt_most_popular-block'] = array(
     'cache' => -1,
-    'custom' => 0,
     'delta' => 'mt_most_popular-block',
     'module' => 'views',
     'node_types' => array(),
@@ -617,13 +633,10 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
   );
 
   $export['views-mt_most_popular-block_1'] = array(
     'cache' => -1,
-    'custom' => 0,
     'delta' => 'mt_most_popular-block_1',
     'module' => 'views',
     'node_types' => array(),
@@ -649,13 +662,10 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
   );
 
   $export['views-mt_news_in_images-block'] = array(
     'cache' => -1,
-    'custom' => 0,
     'delta' => 'mt_news_in_images-block',
     'module' => 'views',
     'node_types' => array(),
@@ -681,13 +691,10 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
   );
 
   $export['views-mt_node_navigation-block'] = array(
     'cache' => -1,
-    'custom' => 0,
     'delta' => 'mt_node_navigation-block',
     'module' => 'views',
     'node_types' => array(
@@ -715,13 +722,10 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
   );
 
   $export['views-mt_tags_cloud-block'] = array(
     'cache' => -1,
-    'custom' => 0,
     'delta' => 'mt_tags_cloud-block',
     'module' => 'views',
     'node_types' => array(),
@@ -747,13 +751,10 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
   );
 
   $export['views-mt_tweets-block'] = array(
     'cache' => -1,
-    'custom' => 0,
     'delta' => 'mt_tweets-block',
     'module' => 'views',
     'node_types' => array(),
@@ -779,13 +780,10 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
   );
 
   $export['views-mt_user_latest_posts-block'] = array(
     'cache' => -1,
-    'custom' => 0,
     'delta' => 'mt_user_latest_posts-block',
     'module' => 'views',
     'node_types' => array(),
@@ -811,8 +809,6 @@ function spgb_blocks_default_fe_block_settings() {
         'weight' => 0,
       ),
     ),
-    'title' => '',
-    'visibility' => 0,
   );
 
   return $export;

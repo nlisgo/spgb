@@ -29,5 +29,30 @@ A news theme for Drupal
 
   $export['about'] = $fe_block_boxes;
 
+  $fe_block_boxes = new stdClass();
+  $fe_block_boxes->info = 'Navigation Social Bookmarks & Search Box';
+  $fe_block_boxes->format = 'php_code';
+  $fe_block_boxes->machine_name = 'search_social';
+  $fe_block_boxes->body = '<div class="navigation-social-bookmarks">
+<ul class="social-bookmarks">
+<li>
+<a href="http://www.facebook.com/socialistpartyofgreatbritain/"><i class="fa fa-facebook"></i></a>
+</li>
+<li>
+<a href="http://twitter.com/OfficialSPGB/"><i class="fa fa-twitter"></i></a>
+</li>                     
+</ul>
+<?php if (module_exists(\'search\')): ?>
+<div class="dropdown search-bar block-search">
+<a data-toggle="dropdown" href="#" class="trigger"></a>
+<ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+<li><?php $block = module_invoke(\'search\', \'block_view\', \'search\'); print render($block);?></li>
+</ul>
+</div>
+ <?php endif; ?>
+</div>';
+
+  $export['search_social'] = $fe_block_boxes;
+
   return $export;
 }
