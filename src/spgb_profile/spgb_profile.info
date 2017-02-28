@@ -68,6 +68,11 @@ dependencies[] = discussthis
 dependencies[] = captcha
 dependencies[] = recaptcha
 dependencies[] = similarterms
+dependencies[] = date_all_day
+dependencies[] = date_pop_up
+dependencies[] = date_repeat
+dependencies[] = date_repeat_field
+dependencies[] = date_tools
 
 
 ; Distribution modules.
