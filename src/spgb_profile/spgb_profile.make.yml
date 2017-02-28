@@ -74,8 +74,6 @@ projects:
     version: '1.9'
   token:
     version: '1.7'
-  twitter:
-    version: '5.11'
   ubercart:
     version: '3.10'
   views:

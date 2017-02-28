@@ -38,7 +38,6 @@ dependencies[] = webform
 dependencies[] = superfish
 dependencies[] = jquery_update
 dependencies[] = oauth_common
-dependencies[] = twitter
 dependencies[] = quicktabs
 dependencies[] = migrate
 dependencies[] = migrate_ui
