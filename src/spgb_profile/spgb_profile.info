@@ -67,6 +67,7 @@ dependencies[] = discussthis
 dependencies[] = captcha
 dependencies[] = recaptcha
 dependencies[] = similarterms
+dependencies[] = role_export
 
 
 ; Distribution modules.

@@ -1,0 +1,52 @@
+<?php
+/**
+ * @file
+ * Code for the SPGB users cleanup module.
+ */
+
+/**
+ * Get the current to legacy role map.
+ *
+ * @return array
+ */
+function _spgb_users_cleanup_map() {
+  return array(
+    'Event manager' => 'Event adder',
+    'Internet committee' => 'Internet dept',
+    'Forum moderator' => 'moderator',
+    'Shop keeper' => 'shopkeeper',
+  );
+}
+
+/**
+ * Get the deprecated legacy roles.
+ *
+ * @return array
+ */
+function _spgb_users_cleanup_deprecated() {
+  return array(
+    'genuine user',
+  );
+}
+
+/**
+ * Assign users the new roles.
+ */
+function _spgb_users_cleanup_run() {
+  $roles = _spgb_users_cleanup_map();
+  foreach ($roles as $new => $old) {
+    $old_role = user_role_load_by_name($old);
+    $new_role = user_role_load_by_name($new);
+    db_update('users_roles')
+      ->fields(array('rid' => $new_role->rid))
+      ->condition('rid', $old_role->rid)
+      ->execute();
+  }
+  $deprecated = _spgb_users_cleanup_deprecated();
+  foreach ($deprecated as $role_name) {
+    $deprecated_role = user_role_load_by_name($role_name);
+    db_delete('users_roles')
+      ->condition('rid', $deprecated_role->rid)
+      ->execute();
+  }
+}

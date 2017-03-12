@@ -1,0 +1,6 @@
+name = SPGB users cleanup
+core = 7.x
+package = SPGB
+version = 7.x-1.0
+dependencies[] = spgb_users
+

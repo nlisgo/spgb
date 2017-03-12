@@ -58,6 +58,8 @@ projects:
     version: '2.2'
   riddler:
     version: '1.2'
+  role_export:
+    verison: '1.0'
   rules:
     version: '2.9'
   scheduler:

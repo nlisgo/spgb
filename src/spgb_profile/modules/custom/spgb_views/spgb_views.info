@@ -13,7 +13,6 @@ features[views_view][] = mt_most_popular
 features[views_view][] = mt_news_in_images
 features[views_view][] = mt_node_navigation
 features[views_view][] = mt_tags_cloud
-features[views_view][] = mt_tweets
 features[views_view][] = mt_user_latest_posts
 features[views_view][] = pamphlets
 features[views_view][] = ss_covers

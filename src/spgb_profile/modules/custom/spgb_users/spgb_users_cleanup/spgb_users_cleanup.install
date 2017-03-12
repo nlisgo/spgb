@@ -1,0 +1,21 @@
+<?php
+/**
+ * @file
+ * Install and update steps for the SPGB users cleanup module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function spgb_users_cleanup_install() {
+  _spgb_users_cleanup_run();
+}
+
+/**
+ * EXAMPLE: Run users cleanup again.
+ */
+/*
+function spgb_users_cleanup_update_7200() {
+  _spgb_users_cleanup_run();
+}
+*/
