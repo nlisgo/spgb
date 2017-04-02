@@ -1,0 +1,88 @@
+# Use one-click apps - LAMP on 14.04
+
+apt-get update
+
+# Install git
+apt-get -y install git
+
+# Install additional packages
+apt-get -y install zip unzip php5-curl php5-mcrypt
+php5enmod mcrypt
+
+# Install composer
+cd ~
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+mv composer.phar /usr/local/bin/composer
+echo 'export PATH="$HOME/.config/composer/vendor/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+
+# Install drush
+composer global require drush/drush:~8.1.8
+
+# create a swap space for MySQL. See: https://www.digitalocean.com/community/questions/mysql-server-stops-very-frequently?comment=42488
+dd if=/dev/zero of=/swap.dat bs=1024 count=512k
+mkswap /swap.dat
+swapon /swap.dat
+vim /etc/fstab
+# add the following to the end of /etc/fstab file
+/swap.dat      none    swap    sw      0       0
+vim /etc/mysql/my.cnf
+# And add this under [mysqld]
+innodb_buffer_pool_size=64M
+
+service mysql reload
+
+# Login in mysql root - root password is here: /root/.digitalocean_password
+mysql> CREATE DATABASE spgb;
+mysql> GRANT ALL PRIVILEGES ON spgb.* TO 'spgb'@'localhost' IDENTIFIED BY "[DB_PASSWORD]";
+mysql> CREATE DATABASE spgb_d6;
+mysql> GRANT ALL PRIVILEGES ON spgb_d6.* TO 'spgb_d6'@'localhost' IDENTIFIED BY "[DB_PASSWORD]";
+
+# Clone repo to /var/www/spgb
+cd /var/www
+git clone https://github.com/nlisgo/spgb.git
+chown -R www-data:www-data /var/www/spgb
+
+cd /var/www/spgb
+./setup.sh
+
+# Modify /var/www/spgb/local.settings.php with database credentials
+
+# Modify /etc/apache2/sites-available/000-default.conf
+<VirtualHost *:80>
+        ServerAdmin webmaster@localhost
+        DocumentRoot /var/www/spgb/web
+
+        <Directory /var/www/spgb/web/>
+            Options Indexes FollowSymLinks
+            AllowOverride All
+            # Require all granted
+            AuthType Basic
+            AuthName "Restricted Content"
+            AuthUserFile /etc/apache2/.htpasswd
+            Require valid-user
+        </Directory>
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+apt-get -y install apache2-utils
+htpasswd -c /etc/apache2/.htpasswd [USER] # prompted for password
+service apache2 restart
+
+# Enable mod_rewrite
+a2enmod rewrite
+service apache2 restart
+
+cd /var/www/spgb
+./install.sh
+
+# Import the legacy database to spgb_d6
+# Place the legacy site files in /var/www/spgb/build/legacy_files/sites/default/files
+chown -R www-data:www-data /var/www/spgb/build/legacy_files
+
+cd /var/www/spgb/web/spgb
+drush migrate-status
